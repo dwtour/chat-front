@@ -1,6 +1,12 @@
 body{
   background: #3f4b6a;
 }
+.text{
+  font-family: 'IBM Plex Mono', monospace;
+  padding: 5px;
+  margin: 3px;
+}
+
 .chat-layout{
   margin: auto;
   padding-top: 150px;
@@ -20,48 +26,23 @@ body{
     background: #ffffff;
     height: 400px;
 
-    &__event{
-      height: 50px;
-      width: 150px;
+
+    &__message-to, &__message-from {
       margin: 10px;
       padding: 5px;
-
-
-      &__from{
-        background: #c3e6ff;
-        height: 10%;
-        width: 48%;
-        margin: 5px;
-      }
+      width: 45%;
     }
 
-    &__message{
-      margin: 10px;
-
-      &__from{
-        background: #c3e6ff;
-        height: 10%;
-        width: 48%;
-        margin: 5px;
-      }
-
-      &__to{
-        align-self:flex-end;
-        height: 10%;
-        width: 48%;
-        background: #94d2ff;
-        margin: 5px;
-      }
+    &__message-from{
+      background: #c3e6ff;
     }
 
-    &__text{
-      font-family: 'IBM Plex Mono', monospace;
-      padding: 5px;
-      margin-top: 3px;
-      margin-bottom: 3px;
-      margin-left: 3px;
-      margin-right: 3px;
-    }
+    &__message-to{
+      align-self:flex-end;
+      background: #94d2ff;
+      }
+
+
 
     &__username{
       font-family: 'IBM Plex Mono', monospace;
@@ -71,7 +52,7 @@ body{
   &__input-wrapper{
     font-family: 'IBM Plex Mono', monospace;
     height:100px;
-    width:100%;
+    width:500px;
     margin-top: 30px;
 
     &__message-wrapper{
