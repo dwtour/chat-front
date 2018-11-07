@@ -1,0 +1,89 @@
+body {
+  background: #3f4b6a;
+}
+
+.chat-layout {
+  margin: auto;
+  padding-top: 150px;
+  height: 700px;
+  width: 500px;
+  display: flex;
+  flex-flow: column wrap;
+}
+.chat-layout__messages {
+  display: flex;
+  flex-flow: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  flex-grow: 1;
+  flex-basis: auto;
+  background: #ffffff;
+  height: 400px;
+}
+.chat-layout__messages__event {
+  height: 50px;
+  width: 150px;
+  margin: 10px;
+  padding: 5px;
+}
+.chat-layout__messages__event__from {
+  background: #c3e6ff;
+  height: 10%;
+  width: 48%;
+  margin: 5px;
+}
+.chat-layout__messages__message {
+  margin: 10px;
+}
+.chat-layout__messages__message__from {
+  background: #c3e6ff;
+  height: 10%;
+  width: 48%;
+  margin: 5px;
+}
+.chat-layout__messages__message__to {
+  align-self: flex-end;
+  height: 10%;
+  width: 48%;
+  background: #94d2ff;
+  margin: 5px;
+}
+.chat-layout__messages__text {
+  font-family: "IBM Plex Mono", monospace;
+  padding: 5px;
+  margin-top: 3px;
+  margin-bottom: 3px;
+  margin-left: 3px;
+  margin-right: 3px;
+}
+.chat-layout__messages__username {
+  font-family: "IBM Plex Mono", monospace;
+}
+.chat-layout__input-wrapper {
+  font-family: "IBM Plex Mono", monospace;
+  height: 100px;
+  width: 100%;
+  margin-top: 30px;
+}
+.chat-layout__input-wrapper__message-wrapper {
+  align-self: stretch;
+  height: 50px;
+  width: 400px;
+}
+.chat-layout__input-wrapper__ip {
+  background: #3f4b6a;
+  text-transform: lowercase;
+  color: #8ca3d1;
+  margin: 5px;
+}
+.chat-layout__input-wrapper__send {
+  height: 50px;
+  width: 100px;
+  background: #313038;
+  text-transform: uppercase;
+  color: #9ede93;
+  border: none;
+  user-select: none;
+}
+
+/*# sourceMappingURL=index.css.map */
