@@ -12,6 +12,7 @@ body{
   padding-top: 150px;
   height: 700px;
   width: 500px;
+  max-width: 60%;
   display:flex;
   flex-flow:column wrap;
 
@@ -22,7 +23,6 @@ body{
     align-items: flex-start;
     flex-grow:1;
     flex-basis: auto;
-
     background: #ffffff;
     height: 400px;
 
@@ -53,12 +53,14 @@ body{
     font-family: 'IBM Plex Mono', monospace;
     height:100px;
     width:500px;
+    max-width: 100%;
     margin-top: 30px;
 
     &__message-wrapper{
       align-self:stretch;
       height:50px;
-      width:400px;
+      max-width:400px;
+      min-width: 80%;
     }
 
     &__ip{
@@ -70,7 +72,8 @@ body{
 
     &__send{
       height: 50px;
-      width: 100px;
+      max-width: 100px;
+      min-width: 20%;
       background: #313038;
       text-transform: uppercase;
       color: #9ede93;
