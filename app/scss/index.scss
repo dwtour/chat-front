@@ -1,5 +1,9 @@
 body{
+  display: flex;
   background: #3f4b6a;
+  justify-content: center;
+  align-items: center;
+  flex: auto;
 }
 .text{
   font-family: 'IBM Plex Mono', monospace;
@@ -8,12 +12,12 @@ body{
 }
 
 .chat-layout{
-  margin: auto;
   padding-top: 150px;
   height: 700px;
-  width: 500px;
-  display:flex;
-  flex-flow:column wrap;
+  max-width: 500px;
+  display: flex;
+  flex-flow: column;
+
 
   &__messages{
     display:flex;
@@ -22,9 +26,8 @@ body{
     align-items: flex-start;
     flex-grow:1;
     flex-basis: auto;
-
     background: #ffffff;
-    height: 400px;
+    height: 500px;
 
 
     &__message-to, &__message-from {
@@ -49,16 +52,28 @@ body{
     }
   }
 
-  &__input-wrapper{
+  &__client-wrapper {
     font-family: 'IBM Plex Mono', monospace;
-    height:100px;
-    width:500px;
+    height: 100px;
+    max-width: 500px;
     margin-top: 30px;
 
-    &__message-wrapper{
-      align-self:stretch;
-      height:50px;
-      width:400px;
+    &__input-wrapper{
+      display: flex;
+      &__message-wrapper{
+        height:50px;
+        flex: 4 2 0;
+      }
+      &__send{
+        height: 50px;
+        background: #313038;
+        text-transform: uppercase;
+        color: #9ede93;
+        border: none;
+        user-select: none;
+        cursor: pointer;
+        flex: 1 1 0;
+      }
     }
 
     &__ip{
@@ -66,16 +81,6 @@ body{
       text-transform: lowercase;
       color: #8ca3d1;
       margin: 5px;
-    }
-
-    &__send{
-      height: 50px;
-      width: 100px;
-      background: #313038;
-      text-transform: uppercase;
-      color: #9ede93;
-      border: none;
-      user-select: none;
     }
   }
 }
