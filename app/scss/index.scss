@@ -17,7 +17,7 @@ body{
   max-width: 500px;
   display: flex;
   flex-flow: column;
-
+  font-family: 'IBM Plex Mono', monospace;
 
   &__messages{
     display:flex;
@@ -28,7 +28,6 @@ body{
     flex-basis: auto;
     background: #ffffff;
     height: 500px;
-
 
     &__message-to, &__message-from {
       margin: 10px;
@@ -44,16 +43,9 @@ body{
       align-self:flex-end;
       background: #94d2ff;
       }
-
-
-
-    &__username{
-      font-family: 'IBM Plex Mono', monospace;
-    }
   }
 
   &__client-wrapper {
-    font-family: 'IBM Plex Mono', monospace;
     height: 100px;
     max-width: 500px;
     margin-top: 30px;
