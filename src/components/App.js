@@ -1,17 +1,7 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import Routes from '../routes';
+import React from 'react'
+import {render} from 'react-dom'
+import Layout from "./components/Layout";
+import Input from "./components/Input";
 
-import '../styles/footer.scss';
-
-const App = () =>
-  <div>
-    <h1>Filter table</h1>
-    {Routes}
-    <footer className="footer">
-      <Link to="/">Filterable Table</Link>
-      <Link to="/about">About</Link>
-    </footer>
-  </div>;
-
-export default App;
+render(Layout(), document.getElementById("messages-container"));
+render(Input(), document.getElementById('message-input'));
