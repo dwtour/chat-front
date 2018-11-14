@@ -1,16 +1,10 @@
-import React from 'react'
-import Button from 'Button'
-import Id from 'Id'
+import React from 'react';
 
 const Input = () =>
-    <div className="chat-layout__client-wrapper">
-        <div className="chat-layout__client-wrapper__input-wrapper">
-            <input type="text" className="chat-layout__client-wrapper__input-wrapper__message-wrapper"
-                   id="message-input">
-                    <Button />
-            </input>
-        </div>
-        <Id />
-    </div>
+            <input
+                type="text"
+                className="message-wrapper"
+                id="input"
+            />
 
 export default Input;
