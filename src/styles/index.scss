@@ -1,0 +1,75 @@
+body{
+  background: #3f4b6a;
+  justify-content: center;
+  align-items: center;
+  font-family: 'IBM Plex Mono', monospace;
+}
+.text{
+  padding: 5px;
+  margin: 3px;
+}
+.chat {
+  padding-top: 150px;
+  height: 700px;
+  max-width: 500px;
+  margin: auto;
+  display: flex;
+  flex-flow: column;
+}
+  .chat-box {
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-end;
+    flex-grow: 1;
+    flex-basis: auto;
+    background: #ffffff;
+    height: 500px;
+    overflow: auto;
+  }
+
+    .message-to, .message-from {
+      margin: 10px;
+      padding: 5px;
+      width: 43%;
+    }
+
+    .message-from{
+      align-self: flex-start;
+      background: #c3e6ff;
+    }
+
+    .message-to{
+      align-self:flex-end;
+      margin-left: auto;
+      background: #94d2ff;
+    }
+
+.client-wrapper {
+  background: #3f4b6a;
+  height: 100px;
+  padding-top: 30px;
+}
+  .input-wrapper {
+    display: flex;
+  }
+    .message-wrapper{
+      height:50px;
+      flex: 4 2 0;
+    }
+    .basic-button{
+      height: 56px;
+      background: #313038;
+      text-transform: uppercase;
+      color: #9ede93;
+      border: none;
+      user-select: none;
+      cursor: pointer;
+      flex: 1 1 0;
+    }
+
+  .ip{
+    background: #3f4b6a;
+    text-transform: lowercase;
+    color: #8ca3d1;
+    margin: 5px;
+  }
