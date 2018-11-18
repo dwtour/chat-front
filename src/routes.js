@@ -1,11 +1,9 @@
 import React from 'react';
 import { Route, Switch } from 'react-router';
-import FilterableTable from './containers/FilterableTable';
-import About from './components/About';
+import ChatBox from './containers/ChatBox';
 
 export default (
   <Switch>
-    <Route exact path="/" component={FilterableTable} />
-    <Route path="/about" component={About} />
+    <Route exact path="/" component={ChatBox} />
   </Switch>
 );

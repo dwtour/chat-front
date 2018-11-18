@@ -1,17 +1,25 @@
 import React from 'react';
-import Message from "./Message";
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
 
-const Input = ({ handleChange }) =>
-            <input
-                type="text"
-                className="message-wrapper"
-                id="input"
-                onChange={handleChange}
-            />;
+const Input = (props) => {
+  let input;
+  return (
+        <input
+            type="text"
+            className="message-wrapper"
+            id="input"
+            onBlur={() => {
+              props.dispatch(input.value);
+            }}
+            ref={(node) => {
+              input = node;
+            }}
+        />
+  );
+};
 
 Input.propTypes = {
-    handleChange: PropTypes.func,
+  dispatch: PropTypes.func.isRequired
 };
 
 export default Input;

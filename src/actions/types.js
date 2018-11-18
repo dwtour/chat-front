@@ -1,1 +1,3 @@
-export const FILTER = 'FILTER';
+export const ADD_MESSAGE = 'ADD_MESSAGE';
+export const HANDLE_INPUT = 'HANDLE_INPUT';
+export const SEND_CLIENT_MESSAGE = 'SEND_CLIENT_MESSAGE';

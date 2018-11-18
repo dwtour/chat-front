@@ -1,13 +1,23 @@
 import React from 'react';
-import Message from "./Message";
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
 
-const Button = ({ onclick }) =>
-        <button className="basic-button" onClick={() => onclick()}>SEND
-        </button>;
+
+const Button = (props) => {
+  return(
+    <button className="basic-button" onClick={() => {
+          props.dispatch(props.text);
+          document.getElementById("input").value = '';
+      }
+    }
+    >
+    SEND
+    </button>
+  );
+};
 
 Button.propTypes = {
-    onclick: PropTypes.func,
+  dispatch: PropTypes.func.isRequired,
+  text: PropTypes.string.isRequired,
 };
 
 export default Button;
