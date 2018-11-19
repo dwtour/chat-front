@@ -8,7 +8,7 @@ const Input = (props) => {
             type="text"
             className="message-wrapper"
             id="input"
-            onBlur={() => {
+            onChange={() => {
               props.dispatch(input.value);
             }}
             ref={(node) => {
