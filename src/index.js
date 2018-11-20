@@ -6,27 +6,28 @@ import Root from './containers/Root';
 
 const initialState = {
   messages: [
-  {
-    message: 'join',
-    direction: 'from',
-    author: '#user1',
-  },
-  {
-    message: 'leave',
-    direction: 'from',
-    author: '#user2',
-  },
-  {
-    message: 'hello hello hello hello hello hello hello',
-    direction: 'to',
-    author: 'You',
-  },
-  {
-    message: 'hello there',
-    direction: 'from',
-    author: '#user3',
-  },
-]};
+    {
+      message: 'join',
+      direction: 'from',
+      author: '#user1',
+    },
+    {
+      message: 'leave',
+      direction: 'from',
+      author: '#user2',
+    },
+    {
+      message: 'hello hello hello hello hello hello hello',
+      direction: 'to',
+      author: 'You',
+    },
+    {
+      message: 'hello there',
+      direction: 'from',
+      author: '#user3',
+    },
+  ]
+};
 
 const store = configureStore(initialState);
 
@@ -36,7 +37,7 @@ render(
   </AppContainer>,
   document.getElementById('root'),
 );
-/*
+
 if (module.hot) {
   module.hot.accept('./containers/Root', () => {
     const newConfigureStore = require('./store/configureStore');
@@ -50,4 +51,4 @@ if (module.hot) {
       document.getElementById('root'),
     );
   });
-} */
+}

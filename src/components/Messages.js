@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import MessageRow from './MessageRow';
-
 
 const Messages = ({ messages }) => {
   return (
@@ -25,5 +25,7 @@ Messages.propTypes = {
       direction: PropTypes.string.isRequired,
     }).isRequired,
   ).isRequired,
-}
-export default Messages;
+};
+
+
+export default connect(state => ({messages: state.messages}), {})(Messages);

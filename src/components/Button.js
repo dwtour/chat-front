@@ -1,12 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { setInputHandlerFlag } from '../actions';
 
 
 const Button = (props) => {
-  return(
-    <button className="basic-button" onClick={() => {
-          props.dispatch(props.text);
-          document.getElementById("input").value = '';
+  return (
+    <button
+      className="basic-button"
+      onClick={() => {
+          props.dispatch();
       }
     }
     >
@@ -17,7 +20,12 @@ const Button = (props) => {
 
 Button.propTypes = {
   dispatch: PropTypes.func.isRequired,
-  text: PropTypes.string.isRequired,
 };
 
-export default Button;
+const mapDispatchToProps = dispatch => ({
+  dispatch: () => {
+    dispatch(setInputHandlerFlag(true));
+  },
+});
+
+export default connect(() => ({}), mapDispatchToProps)(Button);

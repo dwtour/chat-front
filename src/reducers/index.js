@@ -22,18 +22,17 @@ const messages = (state = [], action) => {
   }
 };
 
-const input = (state = '', action) => {
+const inputHandlerFlag = (state = false, action) => {
   switch (action.type) {
-    case types.HANDLE_INPUT:
-      return action.input;
-    default:
-      return state;
+    case types.SET_INPUT_HANDLER_FLAG:
+      return action.value;
+    default: return state;
   }
 };
 
 const rootReducer = combineReducers({
   messages,
-  input,
+  inputHandlerFlag,
   routing,
 });
 
