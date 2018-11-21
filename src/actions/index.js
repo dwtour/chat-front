@@ -12,7 +12,8 @@ export const sendClientMessage = text => ({
   text,
 });
 
-export const setInputHandlerFlag = value => ({
-  type: types.SET_INPUT_HANDLER_FLAG,
-  value,
+export const setInput = input => ({
+  type: types.SET_INPUT,
+  input,
 });
+

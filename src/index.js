@@ -26,7 +26,7 @@ const initialState = {
       direction: 'from',
       author: '#user3',
     },
-  ]
+  ],
 };
 
 const store = configureStore(initialState);

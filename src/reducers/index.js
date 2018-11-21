@@ -10,7 +10,6 @@ const messages = (state = [], action) => {
         author: action.author,
         direction: action.direction,
       }]);
-
     case types.SEND_CLIENT_MESSAGE:
       return state.concat([{
         message: action.text,
@@ -22,17 +21,18 @@ const messages = (state = [], action) => {
   }
 };
 
-const inputHandlerFlag = (state = false, action) => {
+const inputData = (state = '', action) => {
   switch (action.type) {
-    case types.SET_INPUT_HANDLER_FLAG:
-      return action.value;
-    default: return state;
+    case types.SET_INPUT:
+      return action.input;
+    default:
+      return state;
   }
 };
 
 const rootReducer = combineReducers({
   messages,
-  inputHandlerFlag,
+  inputData,
   routing,
 });
 

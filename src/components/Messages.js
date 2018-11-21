@@ -3,19 +3,16 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import MessageRow from './MessageRow';
 
-const Messages = ({ messages }) => {
-  return (
+const Messages = props =>
     <div className="message">
-
-     {messages.map(message => (
+     {props.messages.map(message => (
        <MessageRow
                 message={message.message}
                 author={message.author}
                 direction={message.direction}
        />
       ))}
-    </div>);
-};
+    </div>;
 
 Messages.propTypes = {
   messages: PropTypes.arrayOf(
@@ -28,4 +25,4 @@ Messages.propTypes = {
 };
 
 
-export default connect(state => ({messages: state.messages}), {})(Messages);
+export default connect(state => ({ messages: state.messages }), {})(Messages);

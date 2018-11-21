@@ -1,31 +1,34 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { setInputHandlerFlag } from '../actions';
+import { setInput, sendClientMessage } from '../actions';
 
 
-const Button = (props) => {
-  return (
+const Button = props =>
     <button
       className="basic-button"
       onClick={() => {
-          props.dispatch();
+          props.sendAndClear(props.inputData);
       }
     }
     >
     SEND
-    </button>
-  );
-};
+    </button>;
 
 Button.propTypes = {
-  dispatch: PropTypes.func.isRequired,
+  sendAndClear: PropTypes.func.isRequired,
+  inputData: PropTypes.string.isRequired,
 };
 
 const mapDispatchToProps = dispatch => ({
-  dispatch: () => {
-    dispatch(setInputHandlerFlag(true));
+  sendAndClear: (text) => {
+    dispatch(sendClientMessage(text));
+    dispatch(setInput(''));
   },
 });
 
-export default connect(() => ({}), mapDispatchToProps)(Button);
+const mapStateToProps = state => ({
+  inputData: state.inputData,
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Button);
