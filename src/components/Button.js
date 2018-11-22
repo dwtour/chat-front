@@ -1,19 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { compose, withState } from 'recompose';
 import { setInput, sendClientMessage } from '../actions';
 
 
-const Button = props =>
+const Button = withState('inputData', 'sendAndClear')(({ inputData, sendAndClear }) =>
     <button
       className="basic-button"
       onClick={() => {
-          props.sendAndClear(props.inputData);
+          sendAndClear(inputData);
       }
     }
     >
     SEND
-    </button>;
+    </button>);
 
 Button.propTypes = {
   sendAndClear: PropTypes.func.isRequired,
@@ -31,4 +32,10 @@ const mapStateToProps = state => ({
   inputData: state.inputData,
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Button);
+export default compose(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  ),
+  withState,
+)(Button);

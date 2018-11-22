@@ -1,10 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { compose, withState } from 'recompose';
+import { connect } from 'react-redux';
 
-const MessageRow = props =>
-    <div className={props.direction === 'from' ? 'message-from' : 'message-to'}>
-    <p className="text">{`${props.author}:  ${props.message}`}</p>
-    </div>;
+const MessageRow = withState('message')(({ message, author, direction }) =>
+    <div className={direction === 'from' ? 'message-from' : 'message-to'}>
+    <p className="text">{`${author}:  ${message}`}</p>
+    </div>);
 
 MessageRow.propTypes = {
   message: PropTypes.string.isRequired,
@@ -12,4 +14,6 @@ MessageRow.propTypes = {
   direction: PropTypes.string.isRequired,
 };
 
-export default MessageRow;
+export default compose(
+  withState,
+)(MessageRow);

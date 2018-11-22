@@ -1,19 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { compose, withState } from 'recompose';
+
 import { setInput } from '../actions';
 
-const Input = props =>
+const Input = withState('inputData', 'save', '')(({ inputData, save }) =>
     <input
       type="text"
       className="message-wrapper"
       id="input"
       onChange={(e) => {
-        props.save(e.target.value);
+        save(e.target.value);
       }}
-      value={props.inputData}
-    />;
-
+      value={inputData}
+    />);
 
 Input.propTypes = {
   inputData: PropTypes.string.isRequired,
@@ -30,4 +31,10 @@ const mapStateToProps = state => ({
   inputData: state.inputData,
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Input);
+export default compose(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  ),
+  withState,
+)(Input);
