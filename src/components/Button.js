@@ -1,41 +1,34 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { compose, withState } from 'recompose';
+import { compose, withState, lifecycle } from 'recompose';
 import { setInput, sendClientMessage } from '../actions';
+import ChatBox from '../containers/ChatBox';
 
 
-const Button = withState('inputData', 'sendAndClear')(({ inputData, sendAndClear }) =>
+const Button = props =>
     <button
       className="basic-button"
       onClick={() => {
-          sendAndClear(inputData);
+          props.sendAndClear(props.inputData);
       }
     }
     >
     SEND
-    </button>);
+    </button>;
 
 Button.propTypes = {
   sendAndClear: PropTypes.func.isRequired,
   inputData: PropTypes.string.isRequired,
 };
 
-const mapDispatchToProps = dispatch => ({
-  sendAndClear: (text) => {
-    dispatch(sendClientMessage(text));
-    dispatch(setInput(''));
-  },
-});
-
-const mapStateToProps = state => ({
-  inputData: state.inputData,
-});
-
-export default compose(
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  ),
-  withState,
+compose(
+  connect(),
+  withState('prop', 'setProp', 'initialValue'),
+  lifecycle({
+    componentDidMount() {
+    },
+  }),
 )(Button);
+
+export default Button;
