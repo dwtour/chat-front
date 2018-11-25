@@ -1,14 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import { compose, withState, lifecycle } from 'recompose';
 import MessageRow from './MessageRow';
-import ChatBox from '../containers/ChatBox';
 
-const Messages = props =>
+const Messages = ({ messages }) =>
     <div className="message">
 
-     {props.messages.map(message => (
+     {messages.map(message => (
        <MessageRow
                 message={message.message}
                 author={message.author}
@@ -26,14 +23,5 @@ Messages.propTypes = {
     }).isRequired,
   ).isRequired,
 };
-
-compose(
-  connect(),
-  withState('prop', 'setProp', 'initialValue'),
-  lifecycle({
-    componentDidMount() {
-    },
-  }),
-)(Messages);
 
 export default Messages;

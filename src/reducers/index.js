@@ -23,7 +23,7 @@ const messages = (state = [], action) => {
 
 const inputData = (state = '', action) => {
   switch (action.type) {
-    case types.SET_INPUT:
+    case types.SAVE_INPUT:
       return action.input;
     default:
       return state;

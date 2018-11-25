@@ -17,10 +17,3 @@ export function configureStore(initialState) {
     ),
   );
 }
-
-export function configureStoreNew() {
-  return createStore(
-    rootReducer,
-    applyMiddleware(middleware),
-  );
-}

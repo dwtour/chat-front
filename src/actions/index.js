@@ -12,8 +12,8 @@ export const sendClientMessage = text => ({
   text,
 });
 
-export const setInput = input => ({
-  type: types.SET_INPUT,
+export const saveInput = input => ({
+  type: types.SAVE_INPUT,
   input,
 });
 

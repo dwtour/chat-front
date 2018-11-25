@@ -3,31 +3,8 @@ import { render } from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
 import { configureStore, history } from './store/configureStore';
 import Root from './containers/Root';
+import initialState from './store/initialState';
 
-const initialState = {
-  messages: [
-    {
-      message: 'join',
-      direction: 'from',
-      author: '#user1',
-    },
-    {
-      message: 'leave',
-      direction: 'from',
-      author: '#user2',
-    },
-    {
-      message: 'hello hello hello hello hello hello hello',
-      direction: 'to',
-      author: 'You',
-    },
-    {
-      message: 'hello there',
-      direction: 'from',
-      author: '#user3',
-    },
-  ],
-};
 
 const store = configureStore(initialState);
 

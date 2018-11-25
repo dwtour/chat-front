@@ -1,16 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import { compose, withState, lifecycle } from 'recompose';
-import { setInput, sendClientMessage } from '../actions';
-import ChatBox from '../containers/ChatBox';
 
-
-const Button = props =>
+const Button = ({ handleClick }) =>
     <button
       className="basic-button"
       onClick={() => {
-          props.sendAndClear(props.inputData);
+        handleClick();
       }
     }
     >
@@ -18,17 +13,7 @@ const Button = props =>
     </button>;
 
 Button.propTypes = {
-  sendAndClear: PropTypes.func.isRequired,
-  inputData: PropTypes.string.isRequired,
+  handleClick: PropTypes.func.isRequired,
 };
-
-compose(
-  connect(),
-  withState('prop', 'setProp', 'initialValue'),
-  lifecycle({
-    componentDidMount() {
-    },
-  }),
-)(Button);
 
 export default Button;
