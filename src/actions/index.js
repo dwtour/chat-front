@@ -17,3 +17,12 @@ export const saveInput = input => ({
   input,
 });
 
+export const setToken = token => ({
+  type: types.SET_TOKEN,
+  token,
+});
+
+export const setUsername = username => ({
+  type: types.SET_USERNAME,
+  username,
+});

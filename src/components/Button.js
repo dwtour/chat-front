@@ -4,10 +4,7 @@ import PropTypes from 'prop-types';
 const Button = ({ handleClick }) =>
     <button
       className="basic-button"
-      onClick={() => {
-        handleClick();
-      }
-    }
+      onClick={() => { handleClick(); }}
     >
     SEND
     </button>;

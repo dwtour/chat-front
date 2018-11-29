@@ -16,6 +16,18 @@ body{
   display: flex;
   flex-flow: column;
 }
+  .username-form {
+    color: #8ca3d1;
+    padding-bottom: 10px;
+    display: flex;
+
+  }
+    .username-input {
+      margin-left: 5px;
+      flex: auto;
+      flex-wrap: wrap;
+    }
+
   .chat-box {
     display: flex;
     flex-flow: column;

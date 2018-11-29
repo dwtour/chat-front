@@ -1,24 +1,7 @@
 export default {
-  messages: [
-    {
-      message: 'join',
-      direction: 'from',
-      author: '#user1',
-    },
-    {
-      message: 'leave',
-      direction: 'from',
-      author: '#user2',
-    },
-    {
-      message: 'hello hello hello hello hello hello hello',
-      direction: 'to',
-      author: 'You',
-    },
-    {
-      message: 'hello there',
-      direction: 'from',
-      author: '#user3',
-    },
-  ],
+  user: {
+    name: 'Darya',
+    token: '1949d216c6b640bf64ba9cd56448245e74bd050de9b371028964cd639045f2efd81c1c076976fc1ffa1d34cb7ead0ac0fc82c21c617d245b8654bd86e27597c1',
+  },
+  channelToken: 'de79cd0b495235b44280c0bd8a9eb8bad1d5ea5a5d0255dca583c7a3ac86d6771d1a56cdd646ab97ee2e167903c67614fecad1f8736caae207a8875339217385',
 };

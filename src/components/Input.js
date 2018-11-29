@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Input = ({ saveValue, inputData}) =>
+const Input = ({ saveValue, inputData }) =>
     <input
       type="text"
       className="message-wrapper"
