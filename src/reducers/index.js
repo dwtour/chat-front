@@ -2,7 +2,6 @@ import { routerReducer as routing } from 'react-router-redux';
 import { combineReducers } from 'redux';
 import * as types from '../actions/types';
 
-
 const inputData = (state = '', action) => {
   switch (action.type) {
     case types.SAVE_INPUT:
@@ -12,12 +11,18 @@ const inputData = (state = '', action) => {
   }
 };
 
-const user = (state = '', action) => {
+const user = (state = [], action) => {
   switch (action.type) {
     case types.SET_TOKEN:
-      return action.token;
+      return {
+        name: state.name,
+        token: action.token,
+      };
     case types.SET_USERNAME:
-      return action.username;
+      return {
+        name: action.name,
+        token: state.token,
+      };
     default:
       return state;
   }

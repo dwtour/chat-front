@@ -2,19 +2,17 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 
-const Username = ({ handlePress, cachedUser }) =>
+const Username = ({ handlePress }) =>
   <div className="username-form">
     Enter username:
     <input
       className="username-input"
       type="text"
-      value={cachedUser.name}
       onKeyPress={(e) => {
         if (e.key === 'Enter') {
           const myHeaders = new Headers();
           myHeaders.append('Content-Type', 'application/x-www-form-urlencoded');
           myHeaders.append('Token', 'RsIEKqm2X8nLDVA8kKlHnO6iR1CMsFW9');
-
           const myInit =
           {
             method: 'POST',
@@ -27,10 +25,9 @@ const Username = ({ handlePress, cachedUser }) =>
 
           fetch(myRequest).then(response => response.json())
             .then((responseBody) => {
-            // alert(`Обработали респонс: ${JSON.stringify(responseBody)}`);
-            const user = {
-              token: responseBody.data.token,
-              name: e.target.value,
+              const user = {
+                token: responseBody.data.token,
+                name: responseBody.data.username,
             };
             handlePress(user);
           }).catch((error) => {

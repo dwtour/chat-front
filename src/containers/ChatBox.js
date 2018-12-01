@@ -13,8 +13,7 @@ import { convertMessages } from '../utils/dataConverter';
 const ChatBox = props =>
   <div className="chat">
     <Username
-      handlePress={(newObj) => { props.setToken(newObj.token); props.setUsername(newObj.name); }}
-      cachedUser={props.user}
+      handlePress={(newObj) => { props.setUsername(newObj.name); props.setToken(newObj.token); }}
     />
     <div className="chat-box" id="messages-container">
       <Messages
@@ -31,7 +30,7 @@ const ChatBox = props =>
               props.sendMessage();
               props.clearInput();
             }}
-            userToken={props.user.token}
+            isDisabled={props.isDisabled}
           />
         </div>
         <p className="ip">you joined as 127:0:0:1</p>
@@ -40,6 +39,7 @@ const ChatBox = props =>
   </div>;
 ChatBox.propTypes = {
   inputData: PropTypes.string.isRequired,
+  isDisabled: PropTypes.bool.isRequired,
   user: PropTypes.shape({
     name: PropTypes.string.isRequired,
     token: PropTypes.string.isRequired,
@@ -67,6 +67,7 @@ const mapDispatchToProps = dispatch => ({
     dispatch(saveInput(''));
   },
   setToken: (token) => {
+    // ('из mapDispatchToProps'+token);
     dispatch(setToken(token));
   },
   setUsername: (username) => {
@@ -86,6 +87,7 @@ export default compose(
     mapDispatchToProps,
   ),
   withState('messages', 'setMessages', []),
+  withState('isDisabled', 'setDisable', false),
   withHandlers({
     sendMessage: props => () => {
 
@@ -115,6 +117,7 @@ export default compose(
           if (responseBody.error) {
             alert(JSON.stringify(responseBody));
           } else {
+            // console.log(`userToken: ${props.user.token}`);
             props.setMessages(props.messages.concat(
               [{
                 message: props.inputData,
@@ -140,15 +143,17 @@ export default compose(
           headers: myHeaders,
           mode: 'cors',
         };
-
       const query = `user=${this.props.user.token}`;
       const myRequest = new Request(`https://chat.empo.io/v1/messages/${this.props.channelToken}?${query}`, myInit);
 
       fetch(myRequest).then(response => response.json())
         .then((responseBody) => {
+          this.props.setDisable(true);
           this.props.setMessages(convertMessages(responseBody.data, this.props.user.name));
+          this.props.setDisable(false);
         }).catch((error) => {
           alert(`error: ${error.message}`);
+          this.props.setDisable(false);
         });
     },
   }),
