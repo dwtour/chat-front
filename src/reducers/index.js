@@ -11,7 +11,7 @@ const inputData = (state = '', action) => {
   }
 };
 
-const user = (state = [], action) => {
+const user = (state = { name: '', token: '' }, action) => {
   switch (action.type) {
     case types.SET_TOKEN:
       return {

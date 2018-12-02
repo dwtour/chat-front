@@ -5,14 +5,14 @@ import { connect } from 'react-redux';
 import Input from '../components/Input';
 import Messages from '../components/Messages';
 import Button from '../components/Button';
-import Username from '../components/Username';
+import UsernameForm from '../components/UsernameForm';
 import '../styles/index.scss';
 import { setToken, setUsername, saveInput } from '../actions';
 import { convertMessages } from '../utils/dataConverter';
 
 const ChatBox = props =>
   <div className="chat">
-    <Username
+    <UsernameForm
       handlePress={(newObj) => { props.setUsername(newObj.name); props.setToken(newObj.token); }}
     />
     <div className="chat-box" id="messages-container">
@@ -124,6 +124,7 @@ export default compose(
                 author: 'You',
                 direction: 'to',
               }],
+            // ).sort(responseBody.data.createdAt.replace(/[^0-9]/gi, '')));
             ));
           }
         }).catch((error) => {
@@ -136,7 +137,7 @@ export default compose(
       const myHeaders = new Headers();
       myHeaders.append('Content-Type', 'application/x-www-form-urlencoded');
       myHeaders.append('Token', 'RsIEKqm2X8nLDVA8kKlHnO6iR1CMsFW9');
-
+      // console.log('2018-12-01T15:01:33.575037081Z'.replace(/[^0-9]/gi, ''));
       const myInit =
         {
           method: 'GET',
@@ -145,16 +146,15 @@ export default compose(
         };
       const query = `user=${this.props.user.token}`;
       const myRequest = new Request(`https://chat.empo.io/v1/messages/${this.props.channelToken}?${query}`, myInit);
-
+      this.props.setDisable(true);
       fetch(myRequest).then(response => response.json())
         .then((responseBody) => {
-          this.props.setDisable(true);
           this.props.setMessages(convertMessages(responseBody.data, this.props.user.name));
-          this.props.setDisable(false);
-        }).catch((error) => {
+        })
+        .catch((error) => {
           alert(`error: ${error.message}`);
-          this.props.setDisable(false);
-        });
+        })
+        .finally(() => this.props.setDisable(false));
     },
   }),
 )(ChatBox);

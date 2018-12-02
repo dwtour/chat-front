@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 
-const Username = ({ handlePress }) =>
+const UsernameForm = ({ handlePress }) =>
   <div className="username-form">
     Enter username:
     <input
@@ -38,7 +38,7 @@ const Username = ({ handlePress }) =>
     />
   </div>;
 
-Username.propTypes = {
+UsernameForm.propTypes = {
   handlePress: PropTypes.func.isRequired,
   cachedUser: PropTypes.shape({
     name: PropTypes.string.isRequired,
@@ -46,5 +46,5 @@ Username.propTypes = {
   }).isRequired,
 };
 
-export default Username;
+export default UsernameForm;
 

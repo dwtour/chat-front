@@ -1,30 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Button = ({ handleClick, isDisabled }) => {
-  if (isDisabled) {
-    return (
+const Button = ({ handleClick, isDisabled }) =>
       <button
-        disabled
+        disabled={isDisabled}
         className="basic-button"
-        onClick={() => {
-          // alert(`isDisabled: ${isDisabled}`);
-          handleClick(); }}
+        onClick={() => { handleClick(); }}
       >
         SEND
-      </button>);
-  } else {
-    return (
-      <button
-        className="basic-button"
-        onClick={() => {
-          // alert(`isDisabled: ${isDisabled}`);
-          handleClick(); }}
-      >
-        SEND
-      </button>);
-  }
-};
+      </button>;
+
 
 Button.propTypes = {
   handleClick: PropTypes.func.isRequired,
